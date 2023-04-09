@@ -1,0 +1,7 @@
+numpy==1.24.2
+corankco==0.1.0
+keras
+seaborn
+matplotlib
+pandas
+scikit-learn

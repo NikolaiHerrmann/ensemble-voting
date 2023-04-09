@@ -11,9 +11,12 @@ def read_data(dataset):
         return json.load(f)
 
 
-def plot(data):
+def plot(dataset):
+    data = read_data(dataset)
+
     f1_scores = []
     times = []
+    title_ = dataset.split(".")[0].title()
 
     for key, val in data.items():
         comb = key.split(" ")
@@ -35,17 +38,18 @@ def plot(data):
     df = pd.DataFrame(f1_scores, columns=["Ensemble Size", "Voting Rule", "F1 Score"])
     p = sns.boxplot(x = df['Ensemble Size'], y = df['F1 Score'], hue = df['Voting Rule'], palette=[baseline]+colors)
     sns.move_legend(p, "lower left")
-    plt.axhline(y = df[df["Ensemble Size"] <= 1].mean(numeric_only=True)[1], color = baseline, linestyle = '--', linewidth=2.2)
-    plt.title("Performance of Wine Dataset")
+    plt.axhline(y = df[df["Ensemble Size"] <= 1].median(numeric_only=True)[1], color = baseline, linestyle = '--', linewidth=2.2, zorder=-1)
+    plt.title("Performance of " + title_ + " Dataset")
     plt.grid(color='#95a5a6', linestyle='-', linewidth=0.8, alpha=0.2)
-    plt.savefig("performance.pdf", bbox_inches="tight")
+    plt.savefig("performance_" + title_ + ".pdf", bbox_inches="tight")
     plt.show()
 
     df2 = pd.DataFrame(times, columns=["Ensemble Size", "Voting Rule", "Prediction Time (ms)"])
     sns.boxplot(x = df2['Ensemble Size'], y = df2['Prediction Time (ms)'], hue = df2['Voting Rule'], palette=colors)
-    plt.title("Prediction Time of Wine Dataset")
+    plt.title("Prediction Time of " + title_ + " Dataset")
     plt.grid(color='#95a5a6', linestyle='-', linewidth=0.8, alpha=0.2)
-    plt.savefig("time.pdf", bbox_inches="tight")
+    plt.savefig("time_" + title_ + ".pdf", bbox_inches="tight")
     plt.show()
 
-plot(read_data("wine.json"))
+plot("wine.json")
+plot("dermatology.json")
