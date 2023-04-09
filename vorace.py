@@ -55,7 +55,7 @@ class Vorace:
             for train, test in k_fold.split(x, y):
 
                 tmp_hist = self.models[i].fit(x[train], y[train], y_oneHot[train])
-                
+
                 if isinstance(self.models[i], Model):
                     self.weights.append(tmp_hist.history['acc'][-1])
                 else:
@@ -155,7 +155,6 @@ class Vorace:
         if weights == None:
             weights = np.ones(n_model, dtype="f4")
 
-        #print(scoring)
         if scoring == "Plurality":
             scoring = np.zeros(n_candidate, dtype='i2')
             scoring[0] = 1
