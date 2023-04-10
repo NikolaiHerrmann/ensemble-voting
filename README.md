@@ -4,7 +4,7 @@ Files [vorace.py](vorace.py) and [varace_agent.py](vorace_agent.py) have been ad
 
 ### Run Instructions 
 
-Install the Python [requirements.py](requirements.py). Version number for [corankco](https://github.com/pierreandrieu/corankco) and `numpy` are important.
+Install the Python [requirements.txt](requirements.py). Version number for [corankco](https://github.com/pierreandrieu/corankco) and `numpy` are important.
 
 Then run the notebooks.
 
