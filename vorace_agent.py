@@ -4,6 +4,8 @@
 #
 ################################################################################
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import xgboost as xgb
 import keras.backend as K
 from keras.layers import Dense
@@ -15,8 +17,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 import math
 import random
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 
 class Vorace_agent:

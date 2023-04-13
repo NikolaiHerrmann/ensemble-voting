@@ -6,7 +6,7 @@ Files [vorace.py](vorace.py) and [varace_agent.py](vorace_agent.py) have been ad
 
 Install the Python [requirements.txt](requirements.txt). Version number for [corankco](https://github.com/pierreandrieu/corankco) and `numpy` are important.
 
-Then run the notebooks.
+Then run the notebook [simulations.ipynb](simulations.ipynb). Run [plots.py](plots.py) for visualizations.
 
 ### Debug
 

@@ -4,6 +4,8 @@
 #
 ################################################################################
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from corankco.algorithms.enumeration import Algorithm
 from corankco.kemrankagg import KemRankAgg
 from corankco.scoringscheme import ScoringScheme
@@ -14,8 +16,7 @@ from sklearn import metrics
 from sklearn.model_selection import StratifiedKFold
 import numpy as np
 from vorace_agent import Vorace_agent
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+from stv import stv_rule
 
 
 class Vorace:
@@ -274,6 +275,9 @@ class Vorace:
             # print(scores)
         elif scoring == "Kemeny":
             scores = Vorace.rankaggr_brute(preferences)
+        elif scoring == "STV":
+            scores = stv_rule(preferences)
+            #exit()
         else:
             # print("scoring")
             # print(scoring)
