@@ -2,7 +2,7 @@
 
 ### Structure
 
-- Files `vorace.py` and `varace_agent.py`(vorace_agent.py) have been adapted from the original [VORACE](https://github.com/aloreggia/vorace) repository. See the actual [paper](https://link.springer.com/article/10.1007/s10458-021-09504-y).
+- Files `vorace.py` and `varace_agent.py` have been adapted from the original [VORACE](https://github.com/aloreggia/vorace) repository. See the actual [paper](https://link.springer.com/article/10.1007/s10458-021-09504-y).
 
 - `simulations.ipynb` runs our experiments
 
