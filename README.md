@@ -10,7 +10,7 @@
 
 - `summary_plots.py` summarizes results from original paper
 
-- `stv.py` implements stv rule integrated with `vorace.py`
+- `stv.py` is our implementation of the stv rule integrated with `vorace.py`
 
 - `data/` contains datasets (.csv) and our results (.json)
 

@@ -1,6 +1,6 @@
 ################################################################################
 #
-# Coded adapted from https://github.com/aloreggia/vorace
+# Code adapted from https://github.com/aloreggia/vorace
 #
 ################################################################################
 
