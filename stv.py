@@ -1,8 +1,12 @@
+# Our implementation of the stv rule
 
 import numpy as np
 
 
 def re_order(votes):
+    """
+	Restructure from probability vector to ranking
+	"""
     sorted_votes = np.flip(np.argsort(votes))
     prev = -1
     tmp = ()
@@ -27,10 +31,13 @@ def re_order(votes):
 
 
 def collect_votes(ballots):
+    """
+	Determine who voted for which class
+	"""
     all_votes = {}
 
     for x in ballots:
-        pref = re_order(x)
+        pref = re_order(x) # reshape data
         if pref in all_votes:
             all_votes[pref] += 1
         else:
@@ -107,6 +114,9 @@ def stv_election(votes, n):
 
 
 def stv_rule(preferences):
+    """
+	Main method called by vorace.py
+	"""
     n_samples, n_models, n_classes = preferences.shape
     scores = np.zeros((n_samples, n_classes), dtype="i2")
     

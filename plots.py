@@ -1,3 +1,4 @@
+# Plot our results and run stats tests
 
 import matplotlib.pyplot as plt 
 import json
@@ -52,7 +53,7 @@ def plot(dataset):
     plt.title("Performance of " + title_ + " Dataset")
     plt.grid(color='#95a5a6', linestyle='-', linewidth=0.8, alpha=0.2)
     plt.savefig("performance_" + title_ + ".pdf", bbox_inches="tight")
-    #plt.show()
+    plt.show()
 
     df2 = pd.DataFrame(times, columns=["Ensemble Size", "Voting Rule", "Prediction Time (ms)"])
     p = sns.lmplot(x = 'Ensemble Size', y = 'Prediction Time (ms)', hue = 'Voting Rule', data=df2, palette=colors,scatter=False,legend_out=False)
@@ -69,7 +70,7 @@ def plot(dataset):
 
     plt.legend(handles=handles, prop={'size': 8})
     plt.savefig("time_" + title_ + ".pdf", bbox_inches="tight")
-    #plt.show()
+    plt.show()
 
     filter = df[df["Ensemble Size"] == 60]
     lists = []
@@ -77,8 +78,6 @@ def plot(dataset):
     means = []
     for name in rules:
         arr = np.array(filter[filter["Voting Rule"] == name]["F1 Score"])
-        print(name, np.mean(arr))
-        print(arr)
         means.append(np.mean(arr))
         lists.append(arr)
     print(stats.friedmanchisquare(*lists))
@@ -87,5 +86,7 @@ def plot(dataset):
     print(np.round(means, 4))
     
 
-plot("wine_new.json")
-plot("dermatology_new.json")
+print("Wine Dataset")
+plot("wine_f1scores.json")
+print("Dermatology Dataset")
+plot("dermatology_f1scores.json")

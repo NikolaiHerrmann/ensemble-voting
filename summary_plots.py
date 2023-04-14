@@ -1,3 +1,4 @@
+# Summarize results from original paper
 
 import matplotlib.pyplot as plt
 import numpy as np
